@@ -19,38 +19,17 @@ import javax.persistence.Embeddable;
 @Access(AccessType.PROPERTY)//Access through ClassSession class' property
 public class Location implements Serializable{
 
-    private String streetNumber;
-    private String streetAddress;
     private String suburb;
     private String postcode;
     private String state;
     
     public Location(String streetNumber, String streetAddress, String suburb, String postcode, String state) {
-        this.streetNumber = streetNumber;
-        this.streetAddress = streetAddress;
         this.suburb = suburb;
         this.postcode = postcode;
         this.state = state;
     }
 
-    @Column(name = "street_number")
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public void setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
-    }
-
-    @Column(name = "street_address")
-    public String getStreetAddress() {
-        return streetAddress;
-    }
-
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
-    }
-
+    @Column(name = "suburb")
     public String getSuburb() {
         return suburb;
     }
@@ -78,6 +57,6 @@ public class Location implements Serializable{
     
     @Override
     public String toString() {
-        return  streetNumber + ", " + streetAddress + ", " + suburb + ", " + postcode + ", " + state;
+        return  suburb + ", " + postcode + ", " + state;
     }
 }
